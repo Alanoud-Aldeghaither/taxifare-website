@@ -2,8 +2,6 @@ import streamlit as st
 import requests
 from datetime import datetime
 
-st.title("Taxi Fare Prediction")
-st.write("Fill in the ride details below to get a fare estimate:")
 
 pickup_date = st.date_input("Pickup Date", value=datetime.today())
 pickup_time = st.time_input("Pickup Time", value=datetime.now().time())
@@ -33,4 +31,4 @@ if st.button("Predict Fare"):
         prediction = response.json().get("fare", "Error")
         st.success(f"Predicted Fare: ${prediction}")
     else:
-        st.error("Failed to contact the API.")
+        st.error("Failed")
